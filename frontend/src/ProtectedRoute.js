@@ -2,7 +2,7 @@ import React,{Fragment} from 'react'
 import { useSelector } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 const ProtectedRoute=({isAdmin, component:Component, ...rest})=> {
-    const {loading, isAuthenticated, user} = useSelector((state)=> state.user);
+    const {loading, user} = useSelector((state)=> state.user);
     const checkLogin=window.localStorage.getItem("logged")
     return (
         <Fragment>
