@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema({
     },
     role:{
         type:String,
-        default:"admin",
+        default:"User",
     },
     createdAt:{
         type:Date,
