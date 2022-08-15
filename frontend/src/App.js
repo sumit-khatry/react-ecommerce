@@ -1,7 +1,8 @@
-import React ,{useState,useEffect} from "react";
+import React  from "react";
 import "./App.css";
 import "./responsive.css";
 import "react-toastify/dist/ReactToastify.css";
+import {useSelector} from "react-redux"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import Dashboard from "./components/Admin/Dashboard";
@@ -37,30 +38,7 @@ import NotFound from "./screens/NotFound";
 
 
 const App = () => {
-  const [checkLogin, setCheckLogin] = useState(false);
-  const logg=window.localStorage.getItem("userInfo");
-  const data=JSON.parse(logg);
-  const getdata=()=>{
-
-    const user={}
-  
-    try{
-      if(Object.keys(data).length>0){
-        setCheckLogin(true)
-      }
-      }
-      catch(err){
-        setCheckLogin(false)
-        console.log(err)
-      }
-  }
-
-
-  useEffect(() => {
-    getdata();
-  
-   
-  }, [])
+  const {isAuthenticated, user}= useSelector((state)=> state.user);
   
   
   
@@ -69,7 +47,7 @@ const App = () => {
     <Router>
       
       <Header />
-      {checkLogin && <UserOptions user={data}/>}
+      {isAuthenticated && <UserOptions user={data}/>}
 
       <Switch>
 
