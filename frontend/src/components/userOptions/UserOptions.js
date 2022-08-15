@@ -17,7 +17,6 @@ function UserOptions({user}) {
     const history= useHistory();
     const alert=useAlert();
     const dispatch = useDispatch();
-    
     //making array for icons list
     const options=[
         {icon:<ListAltIcon/>, name:"Orders", func:orders},
@@ -48,10 +47,8 @@ function UserOptions({user}) {
 
     function logoutUser(){
         
-        dispatch(logout())
-
-        history.push("/")
-
+        dispatch(logout());
+        history.push("/");
         alert.success("Logout Successfully");
     }
     return (
