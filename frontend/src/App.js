@@ -47,7 +47,7 @@ const App = () => {
     <Router>
       
       <Header />
-      {isAuthenticated && <UserOptions user={data}/>}
+      {isAuthenticated && <UserOptions user={user}/>}
 
       <Switch>
 
