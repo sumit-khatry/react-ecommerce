@@ -15,8 +15,7 @@ const ConfirmOrder = ({history}) => {
         0
     );
     const shippingCharges= subtotal >1000? 0: 200;
-    const tax= subtotal *0.18;
-    const totalPrice= subtotal+tax+shippingCharges;
+   
 
     const address= `${shippingInfo.address},${shippingInfo.city},${shippingInfo.state},${shippingInfo.pinCode},${shippingInfo.country},`;
     // for payment button
@@ -24,7 +23,7 @@ const ConfirmOrder = ({history}) => {
         const data ={
             subtotal,
             shippingCharges,
-            tax,
+            
             totalPrice
         };
         sessionStorage.setItem("orderInfo", JSON.stringify(data));
@@ -99,10 +98,7 @@ const ConfirmOrder = ({history}) => {
                                 <p>Shipping Charges:</p>
                                 <span>₹{shippingCharges}</span>
                             </div>
-                            <div>
-                                <p>GST:</p>
-                                <span>₹{tax}</span>
-                            </div>
+                         
                         </div>
                         <div className="orderSummaryTotal">
                             <p>
