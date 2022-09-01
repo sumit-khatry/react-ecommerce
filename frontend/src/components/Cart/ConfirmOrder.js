@@ -16,7 +16,7 @@ const ConfirmOrder = ({history}) => {
     );
     const shippingCharges= subtotal >1000? 0: 200;
    
-
+const totalPrice=shippingCharges+subtotal
     const address= `${shippingInfo.address},${shippingInfo.city},${shippingInfo.state},${shippingInfo.pinCode},${shippingInfo.country},`;
     // for payment button
     const proceedToPayment=()=>{
